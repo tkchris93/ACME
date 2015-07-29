@@ -1,0 +1,14 @@
+#!/home/tanner/anaconda/bin/python
+
+print "this is a test"
+
+import numpy as np
+from matplotlib import pyplot as plt
+
+x = np.linspace(0,10,100)
+y = x
+
+plt.plot(x,y)
+plt.show()
+plt.close()
+

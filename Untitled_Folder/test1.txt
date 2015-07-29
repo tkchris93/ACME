@@ -1,0 +1,6 @@
+This is the first line of my file.  It is the same as the first line of the other file.
+Here is my second line.  Now there are many, many differences.
+I'm going to add various lines that might potentially confuse the diff function.
+It will be interesting to see what happens here.
+Here is my third line.
+Fourth line.

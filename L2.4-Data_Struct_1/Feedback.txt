@@ -1,0 +1,45 @@
+Big Picture Stuff:
+
+I really like the lamp analogy
+
+Question: what is the correct thing to do if a datatype that is not a string is passed to StrNode()?  Should we be raising an error?  Would this be a good time to introduce this topic?
+
+Let's use "repr" instead of "str".  Is there any advantage to using "str" instead?  I like being able to just type the object and see it's contents without needing to type "print" first.
+
+I can't remember if this is addressed elsewhere, but it might be worth mentioning the "reload" function.  I think there are lots of bugs that beginners could run into if they don't know when to use this function and use it correctly.
+
+In Problem 2, an easy way I did this was create a list within the __repr__ function, append items to it, then cast it to a string in the return statement. Is this the intended implementation?
+
+I have a question that may be worth addressing/clarifying in the lab.  In C++, when removing something from a linked list you have to explicitly delete the pointer or the node will stay allocated in memory.  When removing nodes in python, do we not need to call "del"?  If not, why?
+
+It may be worth suggesting somewhere in the lab to be sure to keep self.head and self.tail up to date when they are affected (ex. inserting at the head, removing the head, removing the tail)
+
+When building the SortedList, the "insert_node" method will be inherited from DoublyLinkedList.  Should insert_node be overwritten to do the same thing as add_node in the SortedList?  Whatever the intended functionality should be, it probably should be mentioned.  Leaving it as is can ruin the sorted nature of the list.
+
+Since we are going to use the comparison of running times between the SortedList and the BinaryTree, it would probably be a good idea to have the students time Problem 6.  I think I remember Jeff mentioning that he wanted these to address Big O in these labs. 
+
+Spelling and Grammar:
+
+Some of the files make reference to Lab4.  Is this this lab 4 or lab 3?  Maybe I'm missing one, but if I remember right, it goes Standard Library, OOP, then this one.
+
+There are multiple locations in code box comments where the first character is capitalized when it should not be.
+
+Not sure if there is a way to do this, but there are multiple locations in code boxes where text is appearing turquoise that should not be.
+
+"There are diverse data structures" --> "There are diverse types of data structures"
+
+In the first paragraph of the lab, it says, "The structure of how the data are stored..."  I looked this up, and word "data" can be treated singular or plural.  I think it sounds more natural to say "...how the data is stored..."
+
+Under the Linked List section, "next link in the chain" --> "next node in the chain"
+
+In the comments within the LinkedList example code box, sometimes you say "new node" and sometimes "new_node".  I don't know which would be better, but it should be consistent.
+
+In the Problem 2 code box, it has the line of code "print(my_list)".  To stay consistent with the rest of the labs, this should say "print my_list"
+
+In the code box for the correct remove_node, "...the node that precedes that target node." --> "...the node that precedes to target node."
+
+First sentence under Doubly-Linked Lists. "...keeps track the node..." should be, "...keeps track of the node..." 
+
+In the instructions for Problem 6, I think the 3rd through 5th sentences would be a little more clear if they were phrased this way:  "This class should inherit from DoublyLinkedList. The node class for this data structure should inherit from StrNode. The only method that needs to be overwritten is add_node."
+
+

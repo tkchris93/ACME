@@ -1,0 +1,3 @@
+* Let's make sure it is clear that for Problem 2 you are using Tree.py
+* Would the whole subtree be deleted since it's a doubly-linked tree?
+* What does pathologies mean?

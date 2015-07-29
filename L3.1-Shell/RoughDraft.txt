@@ -1,0 +1,192 @@
+UNIX Shell
+
+Lab Objective: Provide an introduction to UNIX commands and integration with Python.
+
+Introduction
+------------
+
+- Basic history. The foundation of Linux and Mac. Importance of knowing UNIX for servers.
+- super versatile, but has a steep learning curve. People have become largely dependent on GUIs. It is valuable to know how powerful the command prompt can be. 
+- The more you learn about UNIX, you will find it is easy to learn but difficult to master. We will build a foundation of simple file system navigation, job control and basic system administration.
+- We will address some of the basics in detail and also include lists of commands that are worth learning.
+
+File System
+===========
+Navigation
+----------
+
+- Open the Terminal
+- The text you see in the upper left of the Terminal is called the prompt. To begin, we will use \li{pwd}, \li{ls}, and \li{cd}.
+- The \li{pwd} command stands for print working directory.
+- The \li{ls} command lists the files and subdirectories within the working directory.
+- The \li{cd} command changes the working directory. 
+- Using these commands, navigate to the \li{Shell-Lab} directory provided with this lab. We will use this directory for the remainder of the lab.  You will find a directory within this directory called \li{test} that is availabe for you to experiment with the concepts and commands found in this lab. The other files and directories are necessary for the exercises we will be doing, so take care not to modify them.
+
+CODE BOX:
+\begin{lstlisting}
+$ pwd
+/home/username
+$ ls
+Desktop     Downloads   Pictures    Templates
+Documents   Music       Public      Videos
+$ cd Downloads
+$ cd Shell-Lab
+$ pwd
+/home/username/Downloads/Shell-Lab
+
+# if at any point you want to go up a directory
+$ cd ..
+\end{lstlisting} 
+
+Flags
+-----
+
+Most commands can be customized using flags. The \li{ls} function has dozens of optional flags. The following table contains some of the most common flags for the \li{ls} command.
+
+TABLE:
+\li{-a} | do not ignore hidden files and folders.
+\li{-l} | list files and folders in long format.
+\li{-t} | sort output by last modified.
+\li{-r} | reverse order while sorting. 
+\li{-R} | print files and folders recursively.
+\li{-S} | sort by file size.
+
+Multiple flags can be combined as one flag. For example, if you wanted to list all the files in a directory in long format and sorted by size, you would use, \li{ls -alS}. To view the reference manual for any command, use \li{man}.  For example, to view the reference manual for \li{ls}, use \li{man ls}.
+
+Other Useful Commands
+---------------------
+
+In this section, rather than providing detailed examples of the commands and outputs from the shell, we will list commonly-used commands and their uses. We highly recommend experimenting with these commands to be familiar with them. Many of these commands will be needed throughout this lab and any typical session with the UNIX shell. In the table, we also have included additional flags that are worth exploring in square brackets at the end of the description.  Remember you are free to experiment with the \li{test} directory.
+
+TABLE:
+clear          | clear the terminal screen
+cp file1 dir1  | create a copy of file1 in dir1
+cp file1 file2 | create a copy of file1 and name it file2
+du dir1        | display disk usage within dir1 [-a, -h]
+df             | display available disk space
+mkdir dir1     | create a new directory named dir1
+mv file1 dir1  | move file1 to dir1
+mv file1 file2 | rename file1 file2
+rm file1       | delete file1 [-i, -v]
+rm -r dir1     | delete dir1 and all items within dir1 [-i, -v]
+touch file1    | create an empty file named file1      
+.              | current directory
+..             | parent directory
+~              | home directory
+/              | root directory
+
+== PROBLEM 1 ==
+In the \li{Shell-Lab} directory, create a new directory called \li{Photos}.  Within the \li{Shell-Lab} directory, delete the \li{Audio} folder along with all its contents.
+
+Wildcards
+---------
+
+As we are working in the file system, there will be times that we want to perform the same command to a group of similar files. For example, if you needed to move all text files within a directory to a new directory, the naive way to do this would be to move each text file individually. However, this same result can be achieved using \emph{wildcards}. The two wildcards we will use the most are the following:
+
+TABLE
+*   | any string 
+?   | any character
+
+Though these wildcards will work with any string, these are particularly useful when dealing with files.
+
+EXAMPLES
+*.txt       | all files that end with .txt
+image*      | all files that have "image" as the first 5 characters
+*str*       | all files that contain "str" 
+doc?.txt    | all files of the form doc1.txt, doc2.txt, docA.txt, etc
+
+== PROBLEM 2 ==
+Within the \li{Shell-Lab} directory, there are multiple \li{.png} files. Using wildcards, move all these .png files to the \li{Photos} folder you created in Problem 1.
+
+Searching the System
+--------------------
+
+There are two powerful commands we use for searching through our directories. The \li{find} command is used to find files in a directory hierarchy. The \li{grep} command is used to find lines matching a string. This is used to find words inside files. We will provide basic examples for using these two commands and leave it to you to explore the uses of the other flags.
+
+EXAMPLES
+\li{find dir1 -type f -name "word"}  | find all files within \li{dir1} with the name \li{"word"} (\li{-type f} for files \li{-type d} for directories)
+\li{grep -nr "word" dir1}            | find all occurances or \li{"word"} within the files inside \li{dir1}. (-n lists the line number. -r does the search recursively)
+
+== PROBLEM 3 ==
+In addition to the .png files you have already moved into the \li{Photots} folder, there are a few other .png files in a few other folders with the \li{Shell-Lab} directory. Find where these files are using the \li{find} command and move them to the \li{Photos} folder.
+
+Pipes and Redirects
+-------------------
+
+Unix becomes even more versatile and powerful when you chain multiple commands together. This is accomplished using \emph{pipes}. Rather than printing the output of a command, the output is passed to the next function. Two commands are piped together using the \li{|} operator. To demonstrate the power of pipes, we will first introduce a few functions that allow us to view the contents of a file.
+
+TABLE
+cat     | print the contents of a file in its entirety
+less    | print the contents of a file piece by piece 
+head    | print just the first few lines
+tail    | print just the last few lines 
+
+In the first example below, the \li{cat} command output is piped to \li{wc -l}. The \li{wc} command stands for word count.  The \li{-l} flag tells the \li{wc} command to count lines. Therefore, this first example counts the number of lines in <file>. In the second example below, the command alphabetizes the lines in \li{<file>}.
+
+CODE BOX:
+$ cat <file> | wc -l
+$ cat <file> | sort
+<...output>
+
+In the previous examples, we pipe the contents of \li{<file>} using \li{cat}.  When working with files specifically, it is better to use \emph{redirects}. The same output from the second example above can be achieved by running the following command:
+
+CODE BOX:
+$ sort < <file>
+
+If you are wanting to save the resulting output of a command to a file, use \li{>} or \li{>>}.The \li{>} operator will overwrite anything that may exist in the output file whereas \li{>>} will append the output to the end of the output file.  For example, if we want to save the sorted list of words from the previous example, we would run the following commmand:
+
+CODE BOX:
+$ sort < <file> > <sorted_file>
+
+== PROBLEM 4 ==
+In your terminal, run \li{ls -1} (the flag is a one). Notice that this lists the contents of the directory with one item per line.  Using pipes and redirects, count the number of items within a directory and write your result to <output_file>.
+
+File Security
+-------------
+
+To begin, run the following command in your terminal:
+
+CODE BOX:
+$ ls -l
+<output>
+
+Notice the first column of the output. The first character denotes the type of the item whether it be a normal file, a directory, a symbolic link, etc. The remaining nine characters denote the permissions associated with that file. Specifically, these permissions deal with reading, wrtiting, and executing files. There are three categories of people associated with permissions. These are the user, group, and others. For example, look at the output for <file>. The - denotes that <file> is a normal file.  The next three characters, <rwx> tell us (...).  The next three characters tell us (...).  The final three characters tell us (...).  Permissions can be modified using the \li{chmod} command. 
+
+chmod
+chown
+chgrp
+
+(scripts & job control)
+
+== PROBLEM ==
+In the \li{Python} folder you will find \li{count_files.py}. The command we used in Problem 4 just counted the items in the current directory, whereas count_files.py counts all the files within the current directory recursively. Modify this file so it can be run as a script and change the permissions of this script so the owner can execute the script.
+
+( -mention nohup and cron jobs in passing)
+
+TABLE:
+<command> & | runs the command in the background
+bg %n       | restarts an interrupted job in the background
+fg %n       | brings the nth job into the foreground
+jobs        | lists all the jobs currently running
+kill %n     | terminates the nth job
+ps          | lists all the current processes
+Ctrl-C      | Terminates current job
+Ctrl-Z      | Interrupts current job
+
+== PROBLEM ==
+The \li{Scripts} folder contains three scripts that will each take about a minute to execute. Execute these commands in the background so all three are executing at the same time. To verify all scripts are running at the same time, write a log.txt file with \li{jobs >> log.txt}.
+
+(python integration)
+(os module.  os.system, os.popen())
+(- example grep from unix)
+(- example os.popen())
+
+== PROBLEM ==
+Write a function in Python that finds a given word within the contents of the current directory using the \li{grep} command. 
+
+(reintroduce du a bit before this problem)
+== PROBLEM ==
+Write a function that recursively finds the n largest files within a directory. Be sure that your function only returns files. Hint: Though there are multiple ways to implement this problem, we recommend you start with \li{du -a}.
+
+(ssh, scp)
+

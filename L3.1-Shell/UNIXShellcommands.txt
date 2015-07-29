@@ -1,0 +1,270 @@
+﻿http://www.maclife.com/article/howtos/11_unix_commands_every_mac_geek_should_know
+ls
+cd
+mkdir
+pwd
+command line editors
+(hide path?)
+rm,rmdir
+mv/cp
+who
+cat
+sudo 
+Ctrl + C
+clear
+reset
+========
+http://www.ucs.cam.ac.uk/docs/leaflets/u5
+cat - display or concatenate files
+cd - change directory
+chmod - change the permissions on a file or directory
+cp - copy a file
+date - display the current date and time
+diff - display differences between text files
+file - determine the type of a file
+find - find files of a specified name or type
+ftp - file transfer program
+grep - searches files for a specified string or expression
+gzip - compress a file
+help - display information about bash builtin commands
+info - read online documentation
+kill - kill a process
+lpr - print out a file
+ls - list names of files in a directory (-a, -l, -t)
+man - display an on-line manual page
+	mkdir - make a directory
+more (vs less? vs cat?) - scan through a text file page by page
+mv - move or rename files or directories
+nice - change the priority at which a job is being run
+passwd - change your password
+ps - list processes
+pwd - display the name of your current directory
+quota - disk quota and usage
+rm - remove files or directories
+rmdir - remove a directory
+sort - sort and collate lines
+ssh - secure remote access
+tar - create and use archives of files
+
+
+
+
+=================
+* .
+* ..
+* *   any string
+* ?    any character
+* ^   correcting mistakes in the previous command
+* & - at the end → background
+* /    escape character
+* |    pipe
+* ctrl - z.  Stop the execution of something.  fg to bring it back into the forground. jobs lists jobs. ps lists processes.  (Which is which?)
+* ctrl - p. scroll up through previous commands
+* ctrl - n. scroll down through previous commands
+* ctrl - c. kill current process
+* ctrl - a. go to beginning of line
+* ctrl - e. go to end of line
+* ctrl - f. go forward a character
+* ctrl - b. go back a character
+
+
+============
+http://lab.demog.berkeley.edu/Docs/12important/12important/12uc.shtml  --really good website
+ln - make a macro (kinda) for files or directories do you don’t have to type so much
+du - disk use
+
+
+sudo !! - run the previous command as admin
+
+
+* grep
+* awk
+* sed
+* perl
+* find
+subshells
+redirection
+pipes
+loops
+file globbing (*.java)
+
+
+http://www-users.york.ac.uk/~hcb1/unix20.html  --good website
+
+
+history - list history of commands (and all the associated stuff)
+
+
+wc - word count in a file
+
+
+grep -nrw string directory
+
+
+export PS1='\u@\h: ' changes the prompt to username@hostname.
+export PS1='\$ ' changes the prompt to just $. Use pwd to figure out where you are at.
+\W shows the current folder you are in
+http://www.thegeekstuff.com/2008/09/bash-shell-ps1-10-examples-to-make-your-linux-prompt-like-angelina-jolie/ - has a list of all the arguments possible in this thing.
+http://askubuntu.com/questions/16728/hide-current-working-directory-in-terminal - another solid list
+
+
+chown - changes ownership of the file/directory
+
+
+chmod - changes permissions of a file/directory. symbolic permissions notation, octal permissions notation 
+http://www.computerhope.com/unix/uchmod.htm
+
+
+touch - makes something ex: touch hello.txt makes an empty text file. 
+
+
+vim &/ nano for editing via terminal
+
+
+scp - secure copying 
+
+
+“/volumes/fathership/bach/users/designers/curtis/current projects/ 15-260 | bravo posters”
+
+
+echo
+
+
+say
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+==============================================================================================================================
+
+
+Brief History
+
+
+This lab is not meant to be an exhaustive tutorial on Unix, but rather help you build a foundation of the basics.  
+
+
+Unix will do whatever you tell it to.  You can get into trouble pretty quick if you do things wrong.  If you are unsure, 
+
+
+
+
+
+
+File System
+-------------
+cd        : change directory.  cd with nothing else will take you to the home directory
+ls        : list all the contents of the current directory (-a -l -t)
+rm        : remove files. (-i -r -v)
+mv        : move / rename
+cp        : cp file1 directory
+df
+du        : disk usage
+mkdir        : create a new directory within the current directory
+.        : current directory (working directory)
+..        : parent directory (up one level)
+*        : any string (*.py, image.*)
+?        : any character (?.py, image?.jpg)
+\        : escape character
+~        : home directory
+/        : root directory
+^str1^str2        : Quick substitution. Runs the previous command substituting str2 for str1.  
+     (ex. mjdir temp, ^j^k.)  
+find        : find . -name "<filename>"  --> find all matches starting in the current directory. 
+    replacing the "." with "~" will start the search in the home directory. (-name -size -type)
+    http://itsmetommy.com/2013/07/11/useful-linux-find-commands/         
+grep        : grep -nr "word" .  --> finds all the instances "word" found inside the current directory
+pwd        : print working directory.  Especially useful if you have customized your prompt.
+touch        : create an empty file of a given filetype
+which        : returns the filepath of a given program 
+
+
+
+
+Job Control
+-------------
+&        : end a command with an ampersand to make it run in the background
+jobs        : lists all the jobs currently running
+ctrl-c         : kills current process
+ctrl-z          : stops current process
+fg %n        : brings nth job into foreground
+kill %n        : kills the nth job
+nohup        : no hang up
+./        : executing a script
+
+
+Permissions
+-------------
+sudo        : run a command as the root (password required)
+chmod        : change file permissions for user, groups, and others (go over symbolic permissions (rwx)
+               notation and octal permissions (777) notation) This can be demonstrated by having them
+               write a script and then changing the permissions to be able to execute it.
+chown        : change which user owns a file
+chgrp        : change which group owns a file
+getfacl         : (if the acl package is installed) get a list of info similar to ls -l, but it's a bit easier to read
+setfacl         : more flexible way to set up permissions.  (learn difference between setfacl and chmod) http://www.linuxquestions.org/questions/linux-general-1/what-is-the-difference-between-chmod-and-setfacl-766617/
+http://users.suse.com/~agruen/acl/linux-acls/online/
+http://websistent.com/linux-acl-tutorial/
+
+
+Pipes and Redirects
+---------------------
+|        : pipe
+>        : write to a file (overrides what's there)
+>>        : append to a file
+
+
+Other stuff
+------------
+clear         : gives the user a fresh screen.  You can still scroll up to see what you have done previously
+history        : prints a list of all the previous commands.  history -c clears the history.
+export PS1=        : change the prompt
+
+
+bash commands class
+  find file
+
+
+create a user, and change permissions for that user.
+
+
+
+
+To do stuff with users, we will need the admins of the ACME lab to add a new user that we can mess with.  Let's name this guy "Jack" and have his password be something that everyone will know.
+
+
+Problem ideas:
+- right a python function that returns the given filepath of a given file (find)
+- search for words in directory or file (grep)
+- find and delete the file that is stupid big hidden deep in the directory (du)
+- move all of a certain file type and move it to a new directory that you have created. (example: all music or all photos into a "music" or "photos" folder.)
+- something that involves passing some data into a python script with piping then doing some crazy business.  Something like finding the average size of a file or something cool like that. Ask Jeff if it's worth passing output from a unix command to a python script. 
+- something that involves permissions.  We could teach this having them write a shell script.  Since by default you can't execute a script, we could involve chmod here.
+- write a simple backup script (introduce the possibility of cronjobs?)
+- ssh into a system

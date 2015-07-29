@@ -1,0 +1,23 @@
+I think that it might be worth mentioning the np.argsort function. The only
+time this function is mentioned before here is back in Lab 2 and it's only
+in Table 2.4.  It's pretty hard to keep the sorted eigenvalues and eigenvectors
+paired up without this function.
+
+In Problem 1, the approximation is close, but not close enough to use the 
+default tolerances in np.allclose().  We need to suggest a different set of 
+tolerances to use here.  For my implementation, it worked using atol = 0.01.
+
+Let's give them the circle and vectors data set so they don't have to waste any
+time making it.  This lab has enough things going on in it as is. I have made a
+file unit_circle.npz that can be used.  It contains two arrays: circle, and 
+unit_vectors.  These both have shape (2,n) where array[0] are the x values and
+array[1] are the y values of the necessary points.
+
+In my implementation, the difference between Problem 3 and Problem 4 was one
+line of code.  I think we probably could combine these two problems, which
+would make room for the "put it all together" problem. Or Problem 4 could be a
+"modify your function from Problem 3" kind of problem.
+
+Let's have an extra problem that will take the whole process and put it
+together.  It will definitely take an extra 30-60 minutes, but they will be 
+able to see the relevance behind everything. 
