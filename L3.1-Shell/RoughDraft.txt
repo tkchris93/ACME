@@ -20,27 +20,13 @@ Navigation
 - The \li{pwd} command stands for print working directory.
 - The \li{ls} command lists the files and subdirectories within the working directory.
 - The \li{cd} command changes the working directory. 
-- Using these commands, navigate to the \li{Shell-Lab} directory provided with this lab. We will use this directory for the remainder of the lab.  You will find a directory within this directory called \li{test} that is availabe for you to experiment with the concepts and commands found in this lab. The other files and directories are necessary for the exercises we will be doing, so take care not to modify them.
 
-CODE BOX:
-\begin{lstlisting}
-$ pwd
-/home/username
-$ ls
-Desktop     Downloads   Pictures    Templates
-Documents   Music       Public      Videos
-$ cd Downloads
-$ cd Shell-Lab
-$ pwd
-/home/username/Downloads/Shell-Lab
+== PROBLEM ==
+Using these commands, navigate to the \li{Shell-Lab} directory provided with this lab. We will use this directory for the remainder of the lab.  NOTE: You will find a directory within this directory called \li{test} that is availabe for you to experiment with the concepts and commands found in this lab. The other files and directories are necessary for the exercises we will be doing, so take care not to modify them. 
 
-# if at any point you want to go up a directory
-$ cd ..
-\end{lstlisting} 
 
 Flags
 -----
-
 Most commands can be customized using flags. The \li{ls} function has dozens of optional flags. The following table contains some of the most common flags for the \li{ls} command.
 
 TABLE:
@@ -56,7 +42,7 @@ Multiple flags can be combined as one flag. For example, if you wanted to list a
 Other Useful Commands
 ---------------------
 
-In this section, rather than providing detailed examples of the commands and outputs from the shell, we will list commonly-used commands and their uses. We highly recommend experimenting with these commands to be familiar with them. Many of these commands will be needed throughout this lab and any typical session with the UNIX shell. In the table, we also have included additional flags that are worth exploring in square brackets at the end of the description.  Remember you are free to experiment with the \li{test} directory.
+In this section, we will list commonly-used commands and their uses. We highly recommend experimenting with these commands to become familiar with them. Many of these commands will be needed throughout this lab and in any typical session with the UNIX shell. In the table, we also have included additional flags that are worth exploring in square brackets at the end of the description.  Remember you may freely experiment with these commands in the \li{test} directory.
 
 TABLE:
 clear          | clear the terminal screen
@@ -80,7 +66,6 @@ In the \li{Shell-Lab} directory, create a new directory called \li{Photos}.  Wit
 
 Wildcards
 ---------
-
 As we are working in the file system, there will be times that we want to perform the same command to a group of similar files. For example, if you needed to move all text files within a directory to a new directory, the naive way to do this would be to move each text file individually. However, this same result can be achieved using \emph{wildcards}. The two wildcards we will use the most are the following:
 
 TABLE
@@ -100,19 +85,23 @@ Within the \li{Shell-Lab} directory, there are multiple \li{.png} files. Using w
 
 Searching the System
 --------------------
-
 There are two powerful commands we use for searching through our directories. The \li{find} command is used to find files in a directory hierarchy. The \li{grep} command is used to find lines matching a string. This is used to find words inside files. We will provide basic examples for using these two commands and leave it to you to explore the uses of the other flags.
 
 EXAMPLES
-\li{find dir1 -type f -name "word"}  | find all files within \li{dir1} with the name \li{"word"} (\li{-type f} for files \li{-type d} for directories)
-\li{grep -nr "word" dir1}            | find all occurances or \li{"word"} within the files inside \li{dir1}. (-n lists the line number. -r does the search recursively)
+\li{find dir1 -type f -name "word"}  | find all files within \li{dir1} with the name \  
+                                     | \li{"word"} (\li{-type f} for files \li{-type d} for 
+                                     | directories)
+-------------------------------------+----------------------------------------------------
+\li{grep -nr "word" dir1}            | find all occurances or \li{"word"} within the files 
+                                     | inside \li{dir1}. (-n lists the line number. -r does the 
+                                     | search recursively)
+-------------------------------------+----------------------------------------------------
 
 == PROBLEM 3 ==
 In addition to the .png files you have already moved into the \li{Photots} folder, there are a few other .png files in a few other folders with the \li{Shell-Lab} directory. Find where these files are using the \li{find} command and move them to the \li{Photos} folder.
 
 Pipes and Redirects
 -------------------
-
 Unix becomes even more versatile and powerful when you chain multiple commands together. This is accomplished using \emph{pipes}. Rather than printing the output of a command, the output is passed to the next function. Two commands are piped together using the \li{|} operator. To demonstrate the power of pipes, we will first introduce a few functions that allow us to view the contents of a file.
 
 TABLE
@@ -121,50 +110,97 @@ less    | print the contents of a file piece by piece
 head    | print just the first few lines
 tail    | print just the last few lines 
 
-In the first example below, the \li{cat} command output is piped to \li{wc -l}. The \li{wc} command stands for word count.  The \li{-l} flag tells the \li{wc} command to count lines. Therefore, this first example counts the number of lines in <file>. In the second example below, the command alphabetizes the lines in \li{<file>}.
+In the first example below, the \li{cat} command output is piped to \li{wc -l}. The \li{wc} command stands for word count.  The \li{-l} flag tells the \li{wc} command to count lines. Therefore, this first example counts the number of lines in <file>. In the second example below, the command lists the files in the current directory sorted by size in descending order. For details on what the flags in this command do, consult \li{man sort}. 
 
 CODE BOX:
 $ cat <file> | wc -l
-$ cat <file> | sort
+$ ls -s | sort -nr
 <...output>
 
-In the previous examples, we pipe the contents of \li{<file>} using \li{cat}.  When working with files specifically, it is better to use \emph{redirects}. The same output from the second example above can be achieved by running the following command:
+In the previous example, we pipe the contents of \li{<file>} using \li{cat}.  When working with files specifically, it is better to use \emph{redirects}. The same output from the first  example above can be achieved by running the following command:
 
 CODE BOX:
-$ sort < <file>
+$ wc -l < <file>
 
-If you are wanting to save the resulting output of a command to a file, use \li{>} or \li{>>}.The \li{>} operator will overwrite anything that may exist in the output file whereas \li{>>} will append the output to the end of the output file.  For example, if we want to save the sorted list of words from the previous example, we would run the following commmand:
+If you are wanting to save the resulting output of a command to a file, use \li{>} or \li{>>}.The \li{>} operator will overwrite anything that may exist in the output file whereas \li{>>} will append the output to the end of the output file.  For example, if we want to append the number of lines in \li{<file>} to \li{<count file>}, we would run the following commmand:
 
 CODE BOX:
-$ sort < <file> > <sorted_file>
+$ wc -l < <file> >> <count_file>
+
+Since \li{grep} is used to print lines matching a pattern, it is also very useful to use in conjunction with piping. For example, \li{ls -l | grep root} prints all files associated with the root user.
 
 == PROBLEM 4 ==
-In your terminal, run \li{ls -1} (the flag is a one). Notice that this lists the contents of the directory with one item per line.  Using pipes and redirects, count the number of items within a directory and write your result to <output_file>.
+The \li{word_file} file contains a list of words that are not in alphabetical order. Write the following information to \li{output_file} using pipes and redirects. Try to accomplish this with a total of two commands or fewer.
+LIST
+-the number of words in the file 
+-an alphabetically sorted list of words
 
 File Security
 -------------
-
-To begin, run the following command in your terminal:
+To begin, run the following command while inside the \li{Shell-Lab} directory:
 
 CODE BOX:
 $ ls -l
 <output>
 
-Notice the first column of the output. The first character denotes the type of the item whether it be a normal file, a directory, a symbolic link, etc. The remaining nine characters denote the permissions associated with that file. Specifically, these permissions deal with reading, wrtiting, and executing files. There are three categories of people associated with permissions. These are the user, group, and others. For example, look at the output for <file>. The - denotes that <file> is a normal file.  The next three characters, <rwx> tell us (...).  The next three characters tell us (...).  The final three characters tell us (...).  Permissions can be modified using the \li{chmod} command. 
+Notice the first column of the output. The first character denotes the type of the item whether it be a normal file, a directory, a symbolic link, etc. The remaining nine characters denote the permissions associated with that file. Specifically, these permissions deal with reading, wrtiting, and executing files. There are three categories of people associated with permissions. These are the user (the owner), group, and others. For example, look at the output for <file>. The - denotes that <file> is a normal file.  The next three characters, \li{rwx} tell us the owner can read, write, and execute the file.  The next three characters <r-x> tell us members of the same group can read and execute the file.  The final three characters <--x> tell us other users can execute the file and nothing more.  
 
-chmod
-chown
-chgrp
+Permissions can be modified using the \li{chmod} command. There are two different ways to specify permissions, \emph{symbolic permissions} notation and \emph{octal permissions} notation.Symbolic permissions notation is easier to use when we want to make small modifications to a file's permissions.
 
-(scripts & job control)
+EXAMPLE
+chmod u+x file1  | add executing permissions to owner
+chmod g-w file1  | remove writing permissions from group
+chmod o-r file1  | remove reading permissions from other users
+
+Octal permissions notation is easier to use when we want to set all the permissions at once. The number 4 corresponds to reading, 2 corresponds to writing, and 1 corresponds to executing.
+
+EXAMPLE
+chmod 760 file1  | sets rwx to user, rw- to group, and --- to others
+chmod 640 file1  | sets rw- to user, r-- to group, and --- to others
+chmod 775 file1  | sets rwx to user, rwx to group, and r-x to others
+chmod 500 file1  | sets r-x to user, --- to group, and --- to others
+
+The following commands are also helpful when dealing with permissions.
+
+chown   | change owner
+chgrp   | change group
+getfacl | view all the permissions of a file in a readable format
+
+Scripts
+-------
+A shell script is a series of shell commands saved in a file. Scripts are useful when we have a process that we do over and over again. The following is a very simple script:
+
+EXAMPLE
+#!/bin/bash
+echo "Hello World"
+
+Save this script as \li{hello}. Note that no file type is necessary. The first line starts with \li{#!}. This is called the shebang or hashbang character sequence. It is followed by the absolute path to the \li{bash} interpreter. If we were unsure where the \li{bash} interpreter was saved, we could run \li{which bash}. To execute this script, run the following:
+
+EXAMPLE
+$ ./hello
+bash: ./hello: Permission denied
+
+# Notice that you do not have permission to execute this file. This is by default 
+$ ls -l hello
+-rw-rw-r-- 1 username groupname 31 Jul 30 14:34 hello
+
+$ chmod u+x hello
+$ ./hello
+Hello World
+
+You can do this same thing with python scripts.  All you have to do is change the path following the shebang. To see where the Python interpreter is stored, run \li{which python}.
 
 == PROBLEM ==
-In the \li{Python} folder you will find \li{count_files.py}. The command we used in Problem 4 just counted the items in the current directory, whereas count_files.py counts all the files within the current directory recursively. Modify this file so it can be run as a script and change the permissions of this script so the owner can execute the script.
+In the \li{Shell-Lab} directory you will find \li{count_files.py}. The \li{count_files.py} is a python script that counts all the files within the \li{Shell-Lab} directory. Modify this file so it can be run as a script and change the permissions of this script so the user can execute the script.
 
-( -mention nohup and cron jobs in passing)
+If you would like to learn more about scripts, consider reasearching cron jobs.
+
+Job Control
+-----------
+Let's say you had a series of scripts we wanted to run. If we know that these will take a while to execute, we may want to start them all at the same time and let them run while we are working on something else. In the following table, we have listed some of the most common commands used in job control. We strongly encourage you to experiment with these commands. In the Shell-Lab directory, you will find a \li{five_secs} script that takes five seconds to execute. This will be particularly useful as you are experimenting with these commands.
 
 TABLE:
-<command> & | runs the command in the background
+<command> & | adding an ampersand to the end of a command runs the command in the background
 bg %n       | restarts an interrupted job in the background
 fg %n       | brings the nth job into the foreground
 jobs        | lists all the jobs currently running
@@ -174,9 +210,11 @@ Ctrl-C      | Terminates current job
 Ctrl-Z      | Interrupts current job
 
 == PROBLEM ==
-The \li{Scripts} folder contains three scripts that will each take about a minute to execute. Execute these commands in the background so all three are executing at the same time. To verify all scripts are running at the same time, write a log.txt file with \li{jobs >> log.txt}.
+The \li{Scripts} folder contains three scripts that will each take about a minute to execute. Execute these commands in the background so all three are executing at the same time. To verify all scripts are running at the same time, write a the output of \li{jobs} to \li{log.txt}.
 
-(python integration)
+Python Integration
+------------------
+
 (os module.  os.system, os.popen())
 (- example grep from unix)
 (- example os.popen())
