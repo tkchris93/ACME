@@ -21,3 +21,9 @@ Shell
 
 Data Structurs II
 - provide feedback.  I think it was pretty solid, though.
+
+Logistic Regression
+- time and provide feedback
+
+MSI (or whatever Chris was working on)
+- time and provide feedback

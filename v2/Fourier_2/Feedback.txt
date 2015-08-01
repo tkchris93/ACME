@@ -1,0 +1,6 @@
+I think that we won't need to change a lot with this lab content-wise. I think that it's pretty good. If it was difficult for the students last year, I think it would be because they didn't understand the first Fourier lab.  With the changes we have made to that lab, I feel like this lab is now much more managable.
+Circular convolution didn't make much sense, but it's clearly important.
+The tada material at the end of the lab should be a problem.  Right now, it's just an example.
+The biggest thing that needs to be addressed is the balloon problem. It took forever for me to get that one right, but it was so rewarding when I did.  The thing that tripped me up was including "axis=0" in the fft AND the ifft. We should add a warning box that says because these files are stereo, you must specify an axis or get it all wrong.  Ben and I both got tripped up on this one.
+
+AND, the solutions file for this lab is TOTALLY wrong. I looked at it for a hint when I was having issues with the balloon problem and it's all kinds of messed up.
