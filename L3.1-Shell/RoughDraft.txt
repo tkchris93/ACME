@@ -145,7 +145,7 @@ $ ls -l
 
 Notice the first column of the output. The first character denotes the type of the item whether it be a normal file, a directory, a symbolic link, etc. The remaining nine characters denote the permissions associated with that file. Specifically, these permissions deal with reading, wrtiting, and executing files. There are three categories of people associated with permissions. These are the user (the owner), group, and others. For example, look at the output for <file>. The - denotes that <file> is a normal file.  The next three characters, \li{rwx} tell us the owner can read, write, and execute the file.  The next three characters <r-x> tell us members of the same group can read and execute the file.  The final three characters <--x> tell us other users can execute the file and nothing more.  
 
-Permissions can be modified using the \li{chmod} command. There are two different ways to specify permissions, \emph{symbolic permissions} notation and \emph{octal permissions} notation.Symbolic permissions notation is easier to use when we want to make small modifications to a file's permissions.
+Permissions can be modified using the \li{chmod} command. There are two different ways to specify permissions, \emph{symbolic permissions} notation and \emph{octal permissions} notation. Symbolic permissions notation is easier to use when we want to make small modifications to a file's permissions.
 
 EXAMPLE
 chmod u+x file1  | add executing permissions to owner
@@ -193,11 +193,11 @@ You can do this same thing with python scripts.  All you have to do is change th
 == PROBLEM ==
 In the \li{Shell-Lab} directory you will find \li{count_files.py}. The \li{count_files.py} is a python script that counts all the files within the \li{Shell-Lab} directory. Modify this file so it can be run as a script and change the permissions of this script so the user can execute the script.
 
-If you would like to learn more about scripts, consider reasearching cron jobs.
+If you would like to learn how to run scripts on a set schedule, consider researching \emph{cron jobs}.
 
 Job Control
 -----------
-Let's say you had a series of scripts we wanted to run. If we know that these will take a while to execute, we may want to start them all at the same time and let them run while we are working on something else. In the following table, we have listed some of the most common commands used in job control. We strongly encourage you to experiment with these commands. In the Shell-Lab directory, you will find a \li{five_secs} script that takes five seconds to execute. This will be particularly useful as you are experimenting with these commands.
+Let's say you had a series of scripts we wanted to run. If we know that these will take a while to execute, we may want to start them all at the same time and let them run while we are working on something else. In the following table, we have listed some of the most common commands used in job control. We strongly encourage you to experiment with these commands. In the \li{Shell-Lab} directory, you will find a \li{five_secs} script that takes five seconds to execute. This will be particularly useful as you are experimenting with these commands.
 
 TABLE:
 <command> & | adding an ampersand to the end of a command runs the command in the background
@@ -210,21 +210,29 @@ Ctrl-C      | Terminates current job
 Ctrl-Z      | Interrupts current job
 
 == PROBLEM ==
-The \li{Scripts} folder contains three scripts that will each take about a minute to execute. Execute these commands in the background so all three are executing at the same time. To verify all scripts are running at the same time, write a the output of \li{jobs} to \li{log.txt}.
+The \li{Scripts} folder contains three scripts that will each take about a minute to execute. Execute each of these commands in the background so all three are executing at the same time. To verify all scripts are running at the same time, write a the output of \li{jobs} to \li{log.txt}.
 
 Python Integration
 ------------------
+To this point, we have barely scratched the surface of all the functionality that UNIX has to offer. Using the tools and commands we have addressed so far, we now have a foundation of the basics. Using the \li{os} module, we can call UNIX commands from Python. By combining the UNIX commands we have learned thus far with Python, our toolset is automatically broadened.
 
-(os module.  os.system, os.popen())
-(- example grep from unix)
-(- example os.popen())
+There are two functions within the \li{os} module specifically we will use. When wanting to run a UNIX command, use \li{os.system()}. When wanting to run a UNIX command and be able to store and manipulate the output, use \li{os.popen()}. This function returns a \li{file} object that we can read and store.
+
+\begin{lstlisting}
+>>> os.system("ls -l")
+<output>
+>>> os.popen("ls -l").read().split('\n')
+<output>
+
+Now that we have a \li{list} object, we can manipulate and analyze this data in Python. 
+\end{lstlisting}
 
 == PROBLEM ==
-Write a function in Python that finds a given word within the contents of the current directory using the \li{grep} command. 
+Write a \li{Shell} class. Write a \li{find_file} method that will search for a file starting in the current directory and prints the paths of all matches using the \li{find} command. Write a \li{find_word} method that finds a given word within the contents of the current directory using the \li{grep} command. 
 
 (reintroduce du a bit before this problem)
 == PROBLEM ==
-Write a function that recursively finds the n largest files within a directory. Be sure that your function only returns files. Hint: Though there are multiple ways to implement this problem, we recommend you start with \li{du -a}.
+Write a method for the \li{Shell} class that recursively finds the n largest files within a directory. Have a keyword argument for the directory that defaults to the current directory. Be sure that your function only returns files. Hint: To view the size of a file \li{file1}, you can use \li{ls -s file1} or \li{du file1}
 
 (ssh, scp)
 

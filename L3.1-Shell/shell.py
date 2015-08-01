@@ -86,3 +86,16 @@ class Shell(object):
                 return files
             else:
                 return files[:n]
+
+    def largest(self,n,d=None):
+        if d is None:
+            d = os.popen('pwd').read.strip()
+        command = "find " + d + " -type f"
+        files = os.popen(command).read().split('\n')
+        files.pop()
+        split_files = np.array([os.popen("du " + f).read().strip().split('\t') for f in files])
+        sizes = np.array(split_files[:,0],dtype=np.int32)
+        sorted_index = sp.argsort(sizes)[::-1]
+        return split_files[sorted_index][:n]
+        
+            
