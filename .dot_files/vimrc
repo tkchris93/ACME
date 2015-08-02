@@ -54,7 +54,7 @@ if filereadable("/etc/vim/vimrc.local")
 endif
 
 " setting the default color scheme
-colorscheme darkblue
+colorscheme elflord
 
 " set the tab key to insert 4 spaces instead of a tab
 set expandtab
