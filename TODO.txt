@@ -1,23 +1,27 @@
+
+ABSOLUTELY BEFORE SCHOOL STARTS
+
 Getting Started
-- Add generator xrange in place of range.  Change problem about odds to use generators instead.
 - Write solutions file
 - Write test driver
 
 Installation Guide
 - Write all of it.  Decide whether or not to include pictures. At the very least, get Appendix A done.
 
+Shell 
+- Finish all the TODO's
+- Get Shane, Ben, Jared, Alexander, and Chris to look at it.
+- Write solutions file
+- Write test driver/script.
+
+
+=============================
 Fourier II
 - Write outline. Keep most things the same. Circular convolution didn't make much sense. Make the tada example at the end a problem instead
 - Mess around with different balloon pops.
 
 Bacon
 - time and provide feedback
-
-Shell 
-- Finish all the TODO's
-- Get Shane, Ben, Jared, Alexander, and Chris to look at it.
-- Write solutions file
-- Write test driver/script.
 
 Data Structurs II
 - provide feedback.  I think it was pretty solid, though.
