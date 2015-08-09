@@ -2,18 +2,17 @@
 ABSOLUTELY BEFORE SCHOOL STARTS
 
 Getting Started
-- Write solutions file
 - Write test driver
 
-Installation Guide
-- Write all of it.  Decide whether or not to include pictures. At the very least, get Appendix A done.
-
 Shell 
-- Finish all the TODO's
+- Finish up the SSH and scp stuff.
 - Get Shane, Ben, Jared, Alexander, and Chris to look at it.
-- Write solutions file
+- Finish solutions file
 - Write test driver/script.
 
+Installation Guide
+- Make sure to update the rest of the labs that are going to require additional libraries
+- (pycrypto, wavelets, mayavi, etc.)
 
 =============================
 Fourier II
@@ -24,7 +23,7 @@ Bacon
 - time and provide feedback
 
 Data Structurs II
-- provide feedback.  I think it was pretty solid, though.
+- provide feedback. I think it was pretty solid, though.
 
 Logistic Regression
 - time and provide feedback

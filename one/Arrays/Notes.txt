@@ -1,0 +1,6 @@
+-Numpy instead of NumPy
+-fancy indexing could be explained better, especially with how important
+    it is.
+-get rid of dependencies on outside websites
+-ask if there is a reason polynomials are even addressed. I never recall
+    needing to use them ever again.
