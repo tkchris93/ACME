@@ -111,5 +111,5 @@ export PATH="/home/tanner/anaconda/bin:$PATH"
 
 # adjust the prompt
 export PS1="
-\e[1;31m\w \e[0;31m(\$(git branch 2>/dev/null | grep '^*' | colrm 1 2))
+\u@\h:\e[1;31m\w \e[0;31m(\$(git branch 2>/dev/null | grep '^*' | colrm 1 2))
 \e[1;32m\$ \e[0m"
