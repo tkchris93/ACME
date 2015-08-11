@@ -8,7 +8,6 @@ Shell
 - Finish up the SSH and scp stuff.
 - Get Shane, Ben, Jared, Alexander, and Chris to look at it.
 - Finish solutions file
-- Write test driver/script.
 
 Installation Guide
 - Make sure to update the rest of the labs that are going to require additional libraries
