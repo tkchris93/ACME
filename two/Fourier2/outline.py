@@ -1,9 +1,36 @@
+'''
+Fourier 2: Filtering and Convolution 
+Outline by: Tanner Christensen
+
+Content-wise, I think this lab is pretty solid. I think that if students
+had a hard time with it last year, it was because they didn't fully 
+understand what was going on in the Fourier1. I think the improvements we
+have made to Fourier1 helps this lab a lot.  Rather than do a full outline,
+I will just mention a few tweaks I feel need to be addressed.
+
+Cleaning up noisy signal:
+- Everything here made sense to me. Everything is given for the problem,
+  it's just a matter of applying that knowledge to a different file.
+
+Convolutions:
+- Circular convolution took a while to understand what it was talking about.
+  I think the content is there, but it just didn't click for me.
+- MOST IMPORTANTLY: We HAVE to have a warning box or hint or something 
+  associated with Problem 3. When dealing with stereo signals, you need to
+  include axis=0 for the fft and ifft. This tripped Ben and me up pretty bad.
+  It took forever to figure out what was wrong. Adding a box here would have
+  been a HUGE help.
+- I think the tada example at the end of the lab should be a problem instead
+  of an example. Have them create stereo whitenoise and convolve it with 
+  the tada file.
+'''
+
+# ===== SOLUTIONS ======= #
 import scipy as sp
 import numpy as np
 from scipy.io import wavfile
 from matplotlib import pyplot as plt
 from pyfftw.interfaces import scipy_fftpack as fftw
-
 
 def problem1():
     #clean up noisy signal "The only thing to fear is fear itself"
@@ -18,19 +45,13 @@ def problem1():
     wavfile.write("output.wav", rate, newsig)
     return newsig
 
-'''
-Other than figuring out what range of numbers you need to cut out, this
-problem is essentially copy-paste at the moment. I guess that's okay for a 
-first problem.
-'''
-
-#Problem 2. Create your own balloon pop.  I think that's pretty cool
+#Problem 2. Create your own balloon pop. I think that's pretty cool
 
 #Problem 3. Convolve piano and balloon.
 def problem3():
 	'''
-	If problem 3 stays as it is, this is a CORRECT solution. The current solution
-	is totally jacked.
+	If problem 3 stays as it is, this is a CORRECT solution. The current
+	  solution for this problem is totally jacked.
 	'''
 	# read in files
     rate1,piano = wavfile.read('chopinw.wav')
@@ -42,7 +63,7 @@ def problem3():
     imp = np.zeros_like(sig)
     imp[:len(balloon)] = balloon
     
-    # fourier transforms
+    # fourier transforms (we HAVE to have a warning box about the axis=0 stuff)
     f1 = fftw.fft(sig,axis=0)
     f2 = fftw.fft(imp,axis=0)
     out = sp.ifft((f1*f2),axis=0)
@@ -57,8 +78,9 @@ def problem4():
 	# read in tada.wav
 	rate, tada = wavfile.read('tada.wav')
 	
-	# upon inspection, we find that tada.wav is a stereo audio file. 
-	# we create stereo white noise that lasts 10 seconds
+	# Upon inspection, we find that tada.wav is a stereo audio file. 
+	#   we create stereo white noise that lasts 10 seconds. We use the
+	#   same samplerate of the tada file.
 	L_white = sp.int16(sp.random.randint(-32767,32767,rate*10))
 	R_white = sp.int16(sp.random.randint(-32767,32767,rate*10))
 	white = sp.zeros((len(L_white),2))

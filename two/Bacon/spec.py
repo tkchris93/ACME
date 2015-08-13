@@ -27,7 +27,16 @@ class Graph(object):
             B: A; C
             C: B
         """
-        return ""
+        output = ""
+        my_copy = self.dictionary.copy()
+        my_keys = my_copy.keys()
+        my_keys.sort()
+        for i in my_keys:
+			my_values = my_copy[i]
+			my_values.sort()
+			output += i + ": " + '; '.join(my_values) + '\n'
+        
+        return output
 
     # Problem 2
     def search(self, start):

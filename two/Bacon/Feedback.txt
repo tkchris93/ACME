@@ -1,0 +1,3 @@
+print(graph) syntax is a Python 3 thing, even though it works in Python 2
+it would be nice to add an explanation of why we need "marked" and "visit_queue"
+Is BFS faster than O(n)?
