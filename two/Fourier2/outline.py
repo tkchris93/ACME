@@ -9,7 +9,7 @@ have made to Fourier1 helps this lab a lot.  Rather than do a full outline,
 I will just mention a few tweaks I feel need to be addressed.
 
 Cleaning up noisy signal:
-- Everything here made sense to me. Everything is given for the problem,
+- Everything here made sense to me. Everything is laid out for the problem,
   it's just a matter of applying that knowledge to a different file.
 
 Convolutions:
