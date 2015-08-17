@@ -1,0 +1,9 @@
+It looks to me like passValue and Send_example demonstrate the same thing, but then again, it is nice to have two different examples.
+recieved --> received in multiple places
+numpy --> NumPy
+
+-Problem 4
+How are you supposed to pass n into our function? Isn't the number of processes passed to the mpirun function?
+Might be worth mentioning in Problem 4 that this is UNIT m-sphere.
+It's a little unclear that each process is supposed to take initial averages before passing it to the root process. 
+I really like this lab. I think there isn't much beyond these minor tweaks that are needed.

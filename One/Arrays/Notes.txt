@@ -1,4 +1,3 @@
--Numpy instead of NumPy
 -fancy indexing could be explained better, especially with how important
     it is.
 -get rid of dependencies on outside websites

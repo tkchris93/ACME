@@ -1,0 +1,8 @@
+print(graph) syntax is a Python 3 thing, even though it works in Python 2
+it would be nice to add an explanation of why we need "marked" and "visit_queue"
+Is BFS faster than O(n)?
+The function for Problem 2 is called search. I guess that has the connotation of finding
+   something, which we aren't doing.  Would "traverse" be a better name?
+parth --> path
+Though I think using "baconator" is awesome and hilarious, Wendy's has a federal and international trademark on the name "baconator". Just to be safe, we probably should change this.
+Have the students dealt with try/except statements at this point? That is the best way I found for solving Problem 7. Also, I think it might be worth mentioning that the error that is raised when there is no path to bacon is nx.NetworkXNoPath. If you intentionally left that bit of info out, I totally see a case for that too.

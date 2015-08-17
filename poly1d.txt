@@ -1,0 +1,12 @@
+./Labs/GaussianQuadrature/solutions.py:43:
+./Labs/ComplexNumbers/plots.py:123:   
+./Labs/ChebyshevPolynomials/chebyshev_interp.tex:143:
+./Labs/NewtonCotes/Newton_Cotes_plots.py:16:   
+./Labs/ComplexIntegration/solutions.py:30:
+./Labs/Spectral1/plots.py:27:
+./Labs/FloatingPointError/plots.py:12:
+./Labs/ArnoldiIteration/arnoldi_iteration.tex:370:
+./Labs/BSplines/bezier_solutions.py:87:
+./Labs/ConditioningStability/plots.py:21:
+./Python/matplotlib/plots.py:80:
+./Python/Arrays/Arrays.tex:994:
