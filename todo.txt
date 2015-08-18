@@ -4,28 +4,25 @@ ABSOLUTELY BEFORE SCHOOL STARTS
 Getting Started
 - Write test driver
 
-Shell 
-- Finish up the SSH and scp stuff.
-- Get Shane, Ben, Jared, Alexander, and Chris to look at it.
-- Finish solutions file
+Shell
+- everything (for now) has been handed to Chris
 
 Installation Guide
 - Make sure to update the rest of the labs that are going to require additional libraries
 - (pycrypto, wavelets, mayavi, etc.)
 
 =============================
-Fourier II
-- Write outline. Keep most things the same. Circular convolution didn't make much sense. Make the tada example at the end a problem instead
-- Mess around with different balloon pops.
-
-Bacon
-- time and provide feedback
-
 Data Structurs II
 - provide feedback. I think it was pretty solid, though.
 
 Logistic Regression
 - time and provide feedback
 
-MSI (or whatever Chris was working on)
-- time and provide feedback
+SVD
+- add the problem at the end that ties all the image compression together.
+
+Least Squares
+- add the funciton to the ellipse problem to help them visualize their solution.
+
+Plotting
+- a few minor things to tweak listed in my notes in the folder

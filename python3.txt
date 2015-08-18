@@ -1,0 +1,6 @@
+Websites we that explain the differences between Python2 and Python3
+
+https://asmeurer.github.io/python3-presentation/slides.html#1
+http://sebastianraschka.com/Articles/2014_python_2_3_key_diff.html
+
+

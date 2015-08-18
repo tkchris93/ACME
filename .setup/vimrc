@@ -62,15 +62,18 @@ set tabstop=4
 
 " set up wordwrapping and linebreaks properly
 set wrap linebreak nolist
-nnoremap <up> gk
-nnoremap <down> gj
-nnoremap <Space> i<right>
-nnoremap j gj
-nnoremap k gk
-nnoremap <BS> i<BS>
-nnoremap <CR> i<right><CR>
 
-inoremap <up> <Esc>gk
-inoremap <down> <Esc>gj
+" configure up/down keys
+noremap <up> gk
+noremap <down> gj
+noremap j gj
+noremap k gk
+
+" Configure jk to Esc
 inoremap jk <Esc>
 inoremap kj <Esc>
+
+" Copy/Paste to/from system clipboard
+vnoremap <C-c> "+yy
+vnoremap <C-x> "+dd
+noremap <C-v> "+p

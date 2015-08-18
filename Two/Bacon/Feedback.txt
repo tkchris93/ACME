@@ -1,6 +1,6 @@
-print(graph) syntax is a Python 3 thing, even though it works in Python 2
+print(graph) syntax is a Python 3 thing, even though it works in Python 2. We need to stay consistent throughout the manual.
 it would be nice to add an explanation of why we need "marked" and "visit_queue"
-Is BFS faster than O(n)?
+Is BFS faster than O(n)? What is the Big O?
 The function for Problem 2 is called search. I guess that has the connotation of finding
    something, which we aren't doing.  Would "traverse" be a better name?
 parth --> path
