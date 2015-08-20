@@ -111,5 +111,8 @@ export PATH="/home/tanner/anaconda/bin:$PATH"
 
 # adjust the prompt
 export PS1="
-\u@\h:\e[1;31m\w \e[0;31m(\$(git branch 2>/dev/null | grep '^*' | colrm 1 2))
+\e[1;31m\w \e[0;31m(\$(git branch 2>/dev/null | grep '^*' | colrm 1 2))
 \e[1;32m\$ \e[0m"
+
+# my aliases
+alias biggest="find . -type f -printf '%k %p\n' | sort -nr"

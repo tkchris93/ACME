@@ -54,7 +54,7 @@ if filereadable("/etc/vim/vimrc.local")
 endif
 
 " setting the default color scheme
-colorscheme elflord
+colorscheme delek
 
 " set the tab key to insert 4 spaces instead of a tab
 set expandtab
@@ -70,10 +70,13 @@ noremap j gj
 noremap k gk
 
 " Configure jk to Esc
-inoremap jk <Esc>
-inoremap kj <Esc>
+inoremap jk <Esc><right>
+inoremap kj <Esc><right>
 
 " Copy/Paste to/from system clipboard
 vnoremap <C-c> "+yy
 vnoremap <C-x> "+dd
 noremap <C-v> "+p
+
+" set g to write file
+noremap g :w<CR>

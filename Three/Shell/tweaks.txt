@@ -1,2 +1,42 @@
-Do something cool like playing an audio file on another computer.
 Figure out a better SSH problem.
+sed, awk
+md5, sha
+tar, zip, unzip
+su
+top, htop, free
+curl, wget
+hostname, uname, w
+alias
+who
+
+=============================
+uname     & OS name
+uname -a  & print all system information
+uname -m  & print machine hardware
+passwd    & change password
+
+tar & creates an archive
+tar -cz & creates and compresses an archive
+zip & windows friendly
+unzip & extract .zip files
+tar -xz & extract .tar.gz files
+
+ps -f        & full listing showing the PPID of each process
+ps -e or -A  & All processes including user and system processes
+ps -u usr    & Processes of user usr only
+ps -a        & Processes of all user excluding processes associated with \
+               terminal
+ps -l        & Long listing showing memory-related information
+ps -t term   & Processes running on terminal term (say, /dev/console)
+
+top          & displays top processes (hit q to stop running top)
+at           & run a job at a specific time
+
+=============
+add wc and more to table 1.5 Commands for print contents of a file
+add tee to pipes and redirects. Sends stream both ways 
+  ls /usr/sbin | tee processes.txt | less
+make sure I included nohup
+add !, -o, and -a to find
+find out how much of regular expression has already been addressed
+
