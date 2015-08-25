@@ -63,6 +63,9 @@ set tabstop=4
 " set up wordwrapping and linebreaks properly
 set wrap linebreak nolist
 
+" display line numbers
+set nu
+
 " configure up/down keys
 noremap <up> gk
 noremap <down> gj

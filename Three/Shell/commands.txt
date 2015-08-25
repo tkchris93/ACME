@@ -1,0 +1,107 @@
+Files Processing Commands
+wc [-l, -w] & counts words/lines
+head [-nK] & show first few lines
+tail [-nK] & show last few lines
+more & print parts of files (use for larger files)
+less & same as more, but allows forward and backward navigation
+grep
+sed
+awk
+cat
+
+Checksum Commands
+md5
+sha
+
+Compression
+-z means use gzip
+-v means verbose (print what's happening)
+-f means force (not sure what this is for. Just do it!)
+tar -zcvf <archive> <files/directory> & create .tar.gz archive of files/directory
+tar -ztvf <archive>                   & view contents of archive
+tar -zxvf <archive>                   & extract contents of archive to current directory
+
+zip <zipname> <files/directory>    & compress files/directory to zipname
+unzip -l <zip file>                & list contents of zip file (useful to know whether you should \
+                                     move the archive to a new folder before extracting or not
+unzip <zip file>                   & extract zip archive
+
+File management
+mv                          & move and rename 
+cp                          & copy file 
+cp -r                       & copy directory with all its contents
+mkdir                       & create new directory
+rmdir                       & remove empty directory
+rm [-i, -v]                 & remove file
+rm -r                       & remove directory and all its contents
+ls [-a, -l, -s, -t, -R, -S] & list contents of directory
+
+== User Management ==
+su
+chmod
+chgrp
+chown
+
+
+== Resource Management ==
+top
+htop
+free
+du
+df
+ps
+kill
+<command> &
+
+Web Related
+curl
+wget
+
+System info
+hostname  & print name of current host
+whoami    & print userID of current user
+w         & Show who is logged in an what they are doing
+uname     & OS name
+uname -a  & print all system information
+uname -m  & print machine hardware
+passwd    & change password
+ssh
+scp
+
+
+
+Things that probably need their own section
+
+Regular expressions
+- sed
+- awk
+
+Web related
+- curl
+- wget
+
+Archiving and Compressing
+- tar
+- zip
+- upzip
+
+Checksum Commands
+- md5
+- sha
+
+
+GENERAL NOTES:
+Bring in uname, whoami, w, passwd, hostname with the ssh stuff. Say, "you may want to find out more information on what is going on with the machine you have connected to. It may be necessary to see how the machine is being used to see if you will be able to allocate a sufficient number of resources. etc."
+
+Figure out what top, htop, and free are used for and add it to the job control section. Maybe create a separate section from job control called Resource Management dealing with space and processes and all that jazz.
+
+Commands to research fully:
+- top
+- htop
+- free (is it just good for looking at remaining memory?)
+- curl
+- wget
+- md5
+- sha
+- sed (get more grounded)
+- awk (get more grounded)

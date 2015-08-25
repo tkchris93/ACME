@@ -1,0 +1,4 @@
+make sure it's clear how declaring functions works in ipython
+There's one of the examples where I need to add another '...' as part of a function declaration
+Mention Problem 2 pi=3.14159
+Splice and replace fix

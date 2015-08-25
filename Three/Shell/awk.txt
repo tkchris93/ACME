@@ -1,0 +1,11 @@
+awk ' <options> <selection criteria, (field number or regexp)> <{action}> '
+
+ls -l --time-style=long-iso | sort -k6 | awk ' {printf "%-5s %10s %s\n", $5,$6,$8} '
+ --> change time output to long-iso, sort by sixth column, print 5th, 6th, 8th column with format
+ --> %-5s left justified 5 characters, %10s right justified 10 characters
+
+ls -l | awk ' {print length($1)} '
+ --> list the length of the first field of ls -l
+
+cat test.txt | awk ' { FS = "\t" ; print $3} '
+ --> change the field separator to tab, then print the 3rd field

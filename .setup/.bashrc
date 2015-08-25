@@ -115,4 +115,7 @@ export PS1="
 \e[1;32m\$ \e[0m"
 
 # my aliases
-alias biggest="find . -type f -printf '%k %p\n' | sort -nr"
+alias cdacme="cd ~/ACME"
+alias cdnum="cd ~/numerical_computing"
+alias dubig="find . -type f -printf '%k %p\n' | sort -nr"
+

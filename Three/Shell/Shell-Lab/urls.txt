@@ -1,0 +1,3 @@
+http://acme.byu.edu/wp-content/uploads/2013/07/0906-13-00903.jpg
+http://acme.byu.edu/wp-content/uploads/2014/12/hubble_image.jpg
+http://acme.byu.edu/wp-content/uploads/2014/09/Matplotlib-Appendix.pdf
