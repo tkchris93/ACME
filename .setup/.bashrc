@@ -118,4 +118,5 @@ export PS1="
 alias cdacme="cd ~/ACME"
 alias cdnum="cd ~/numerical_computing"
 alias dubig="find . -type f -printf '%k %p\n' | sort -nr"
-
+alias vim="vim -u ~/.vimrc"
+alias gvim="gvim -u ~/.vimrc"
