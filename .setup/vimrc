@@ -81,5 +81,3 @@ vnoremap <C-c> "+yy
 vnoremap <C-x> "+dd
 noremap <C-v> "+p
 
-" set g to write file
-noremap g :w<CR>

@@ -1,0 +1,14 @@
+Section Timing Functions - fix the timeit box
+Fix Problem 1
+- change the size of the matrices
+- have the students do it twice and take the average.
+- have them name the labels what the function does, instead of Function 1, 2, 3, etc.
+
+There are lots of places that need Joey's fix.
+
+Problem 2
+- see if Joey's fix will work to make the word "format" not blue.
+
+Problem 3
+- it is impossible to check if this is implemented correctly the vector b is random. To check if it's correct, we need to have the students return A, x and b, then run:
+         np.allclose(A.dot(x), b.flatten())

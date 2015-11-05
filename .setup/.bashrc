@@ -115,8 +115,10 @@ export PS1="
 \e[1;32m\$ \e[0m"
 
 # my aliases
+alias build="g++ -g -Wall -std=c++11 *.cpp -o out"
 alias cdacme="cd ~/ACME"
 alias cdnum="cd ~/numerical_computing"
 alias dubig="find . -type f -printf '%k %p\n' | sort -nr"
 alias vim="vim -u ~/.vimrc"
 alias gvim="gvim -u ~/.vimrc"
+alias copytemp="cp temp.pdf ~/Downloads/temp.pdf"

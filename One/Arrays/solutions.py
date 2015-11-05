@@ -90,3 +90,5 @@ def blue_shift_plot():
     plt.subplot(1,2,2)
     plt.imshow(blue)
     plt.show()
+    
+

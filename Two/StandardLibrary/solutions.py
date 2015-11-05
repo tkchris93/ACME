@@ -79,10 +79,10 @@ def prob4():
     time how long each method takes to multiply the two matrices together.
     Print your results to the terminal.
     """
-    if len(sys.argv) == 0:
+    if len(sys.argv) == 1:
         print "No Input."
 
-    if sys.argv[1] == "matrices.npz":
+    elif sys.argv[1] == "matrices.npz":
         A, B = matrix_multiply.load_matrices("matrices.npz")
         
         before = time.time()

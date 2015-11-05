@@ -2,7 +2,7 @@
 import numpy as np
 import scipy.linalg as la
 
-def truncated_svd_retry(A,r=None,tol=10**6):
+def truncated_svd_retry(A,r=None,tol=10**-rel6):
     m,n = A.shape
     eigs,evecs = la.eig(A.conj().T.dot(A))
 
@@ -25,7 +25,6 @@ def truncated_svd_retry(A,r=None,tol=10**6):
         U[:,i] = (1./s[i])*A.dot(V[:,i])
 
     return U, s, V.conj().T
-
 
 def truncated_svd(A,r=None,tol=10**-6):
     m,n = A.shape

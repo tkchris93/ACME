@@ -1,4 +1,3 @@
-#solutions.py
 """Volume 1 Lab 2: NumPy and SciPy
 Written Summer 2015 (Tanner Christensen)
 """
@@ -10,8 +9,10 @@ from mpl_toolkits.mplot3d import Axes3D
 # student's file should be called solutions.py
 
 # Problem 1: Perform matrix multiplication
-
-product = None
+"""Perform matrix-matrix multiplication on A and B.
+Set the varibale 'product' to your answer.
+"""
+product = None  # set product equal to the result of AB.
 
 # Problem 2: Return an array with all nonnegative numbers
 

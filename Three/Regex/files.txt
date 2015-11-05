@@ -1,0 +1,10 @@
+total 488
+drwxrwxr-x 3 tanner tanner  4096 Aug  5 23:46 Audio
+drwxrwxr-x 9 tanner tanner  4096 Aug  2 11:26 Files
+drwxrwxr-x 2 tanner tanner  4096 Aug  2 11:26 Scripts
+drwxrwxr-x 2 freddy tanner  4096 Sep  2 17:58 Test
+-rw-rw-r-- 1 tanner tanner   142 Aug  5 21:20 assignments.txt
+-rw-rw-r-- 1 tanner tanner   194 Aug  5 21:20 calc.py
+-rw-rw-r-- 1 freddy tanner   373 Aug  5 22:16 count_files.py
+-rw-rw-r-- 1 tanner tanner   427 Aug  5 21:21 doc1.txt
+-rw-rw-r-- 1 tanner tanner   326 Aug  5 21:21 doc2.txt
