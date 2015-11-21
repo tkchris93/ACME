@@ -1,0 +1,1 @@
+Add it a bit about why we do the mean shift - something about making the unique features more prominent.

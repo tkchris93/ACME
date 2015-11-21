@@ -88,6 +88,7 @@ def svd_approx(A, k):
     """
     U,s,Vt = la.svd(A, full_matrices=False)
     S = np.diag(s[:k])
+    print S
     u1,s1,vt1 = U[:,:k],S[:k,:k],Vt[:k,:]
     diff = (u1.nbytes + np.diag(s1).nbytes + vt1.nbytes) - A.nbytes
     if diff > 0:

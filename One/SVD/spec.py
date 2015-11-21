@@ -4,13 +4,12 @@ import numpy as np
 from matplotlib import pyplot as plt
 
 # Problem 1
-def truncated_svd(A,r=None,tol=10**-6):
+def truncated_svd(A,k=None):
     """Computes the truncated SVD of A. If r is None or equals the number 
         of nonzero singular values, it is the compact SVD.
     Parameters:
         A: the matrix
-        r: the number of singular values to use
-        tol: the tolerance for zero
+        k: the number of singular values to use
     Returns:
         U - the matrix U in the SVD
         s - the diagonals of Sigma in the SVD
