@@ -1,0 +1,4 @@
+Things to research further:
+- VEGAS algorithm
+- Importance sampling
+- variance reduction
