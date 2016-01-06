@@ -1,0 +1,10 @@
+Changes that need to be done:
+- change e^-10 to 1e-10 in Problem 1
+- change all the titles to proper capitalization
+- I think the line that says w_roots = np.sort(w_roots) is useless
+- Problem 1, you should change all the coefficients, not just one.
+- make it clear what the x and y axes are in the graph on Problem 1
+- change variance to standard deviation to match np.random.normal()
+- 10^20 needs to be fixed.
+- the catastrophic cancellation equation needs to omit the last term.
+
