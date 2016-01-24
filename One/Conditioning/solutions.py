@@ -3,6 +3,7 @@ import numpy as np
 from numpy.random import normal
 from matplotlib import pyplot as plt
 from scipy import linalg as la
+from sympy import factorial, subfactorial
 
 ##############  Problem 1  ##############
 def prob1():
@@ -32,7 +33,7 @@ def prob1():
     
     # visualization of perturbed roots
     for i in xrange(100):
-        perturb = normal(1,1e-10,size=21)
+        perturb = normal(1,np.e**-20,size=21)
         perturbed_coeffs = w_coeffs*perturb
         perturbed_roots = np.roots(np.poly1d(perturbed_coeffs))
         plt.scatter(np.real(perturbed_roots), np.imag(perturbed_roots), 
@@ -60,9 +61,17 @@ def eig_condit(M):
     A tuple containing approximations to the absolute and 
     relative condition numbers of the eigenvalue problem at M.
     '''
-    raise NotImplementedError('eig_condit not implemented')
-
-
+    eigs = la.eig(M)[0]
+    perturb_real = np.random.normal(0, 1e-10, M.shape)
+    perturb_imag = np.random.normal(0,1e-10, M.shape)*1j
+    perturb = perturb_real + perturb_imag
+    
+    eigsp = la.eig(M+perturb)[0]
+    
+    abs_k = la.norm(eigs-eigsp)/la.norm(perturb)
+    rel_k = abs_k*la.norm(M)/la.norm(eigs)
+    
+    return abs_k,rel_k
 
 #   1 pt extra credit
 def plot_eig_condit(x0=-100, x1=100, y0=-100, y1=100, res=10):
@@ -88,7 +97,8 @@ def integral(n):
     '''
     RETURN I(n)
     '''
-    raise NotImplementedError('integral not implemented')
+    I = lambda n : (-1)**n * subfactorial(n) + (-1)**(n+1) * factorial(n)/np.e
+    return I(n)
 
 def prob3():
     '''
@@ -102,7 +112,23 @@ def prob3():
                  0.0590175408793, 0.0455448840758, 0.0370862144237, 
                  0.0312796739322, 0.0270462894091, 0.023822728669, 
                  0.0212860390856, 0.0192377544343] 
-    raise NotImplementedError('Problem 3 not implemented')
+    
+    approx_values = []
+    approx_values.append(integral(1))
+    for i in xrange(5,55,5):
+        approx_values.append(integral(i))
+        
+    print """
+    When n = 20, the answer jumps to -128, then afterwards the answer
+    is 0. I think this is happening due to floating point error. Because
+    these numbers are so large that we are working with, the accuracy of
+    these large computations is getting affected by the small floating
+    point arithmetic errors. Additionally, the value e is stored to 
+    within machine-epsilon of the true value of e. When the numbers we 
+    are dealing with get very large, those digits of accuracy beyond
+    machine-epsilon get more and more important.
+    """
+        
 
 if __name__ == "__main__":
     prob1()

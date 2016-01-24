@@ -1,0 +1,2 @@
+- I saw an "it's" at one point in the lab that should be "its"
+- curve_fit --> opt.curve_fit
